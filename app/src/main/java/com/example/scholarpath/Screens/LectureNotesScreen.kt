@@ -82,7 +82,7 @@ fun LectureNotesScreen(navController: NavController, path: String) {
             BottomNavigationBar(
                 selectedItem = BottomNavigationMenu.MyCOURSE,
                 navController = navController,
-                onItemSelected = {  }
+                onItemSelected = { }
             )
             Divider(
                 color = Color.Gray,
@@ -108,7 +108,7 @@ fun LectureNotesScreen(navController: NavController, path: String) {
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                if(lectureNotes.isNotEmpty()) {
+                if (lectureNotes.isNotEmpty()) {
                     items(lectureNotes.size) { index ->
                         val subject = lectureNotes[index]
                         val encodedPath =
@@ -125,7 +125,7 @@ fun LectureNotesScreen(navController: NavController, path: String) {
                         )
                     }
                 }
-                if(file.isNotEmpty()) {
+                if (file.isNotEmpty()) {
                     items(file.size) { index ->
                         val fileName = file[index]
                         val encodedPath =
@@ -136,7 +136,7 @@ fun LectureNotesScreen(navController: NavController, path: String) {
                                 file = fileName,
                                 onItemClick = { navController.navigate("videoPlayer_screen/$encodedPath") }
                             )
-                        }else {
+                        } else {
                             LectureNotesList(
                                 folder = "",
                                 file = fileName,
@@ -185,15 +185,11 @@ fun LectureNotesList(
                 .clickable { onItemClick() }
         ) {
             val iconResId = when {
-                file.endsWith(".jpg") -> R.drawable.picture
-                file.endsWith(".png") -> R.drawable.picture
-                file.endsWith(".jpeg") -> R.drawable.picture
+                file.endsWith(".jpg") || file.endsWith(".png") || file.endsWith(".jpeg") -> R.drawable.picture
                 file.endsWith(".pdf") -> R.drawable.pdf
-                file.endsWith(".mp4") -> R.drawable.video
-                file.endsWith(".pptx") -> R.drawable.ppt
-                file.endsWith(".ppt") -> R.drawable.ppt
-                file.endsWith(".xlsx") -> R.drawable.excel
-                file.endsWith(".xls") -> R.drawable.excel
+                file.endsWith(".mp4") || file.endsWith(".mkv") -> R.drawable.video
+                file.endsWith(".pptx") || file.endsWith(".ppt")-> R.drawable.ppt
+                file.endsWith(".xlsx") || file.endsWith(".xls")-> R.drawable.excel
 
                 else -> R.drawable.txt
             }

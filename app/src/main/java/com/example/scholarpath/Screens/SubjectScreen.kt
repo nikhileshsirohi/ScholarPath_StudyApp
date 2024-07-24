@@ -86,7 +86,7 @@ fun SubjectScreen(navController: NavController, course: String) {
         },
         bottomBar = {
             BottomNavigationBar(
-                selectedItem = BottomNavigationMenu.HOME,
+                selectedItem = BottomNavigationMenu.MyCOURSE,
                 navController = navController,
                 onItemSelected = { }
             )

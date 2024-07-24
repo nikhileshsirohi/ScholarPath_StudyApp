@@ -118,8 +118,8 @@ fun RaiseRequest(navController: NavController) {
             )
             Button(
                 onClick = {
-                    userData.name?.let { userName ->
-                        uploadQuery(userName = userName, queryText = text){
+                    userData.userId?.let { userID ->
+                        uploadQuery(userId = userID, queryText = text){
                             isSuccess ->
                             if(isSuccess){
                                 Toast.makeText(context, "Query posted successfully", Toast.LENGTH_SHORT)
@@ -143,12 +143,12 @@ fun RaiseRequest(navController: NavController) {
 }
 
 fun uploadQuery(
-    userName: String,
+    userId: String,
     queryText: String,
     onComplete: (Boolean) -> Unit
 ) {
     val db = FirebaseFirestore.getInstance()
-    val userRef = db.collection("QUERIES").document(userName.toUpperCase(Locale.ROOT))
+    val userRef = db.collection("QUERIES").document(userId)
 
     userRef.get().addOnCompleteListener { task ->
         if (task.isSuccessful) {

@@ -21,9 +21,9 @@ suspend fun fetchFirebaseStorageItems(filePath: String): FirebaseFetchResult  {
     }
 
     return try {
-        val listResult = storageRef.listAll().await()
-        val folderNames = listResult.prefixes.map { it.name }
-        val fileNames = listResult.items.map { it.name }
+        val listResult = storageRef.listAll().await()       //fetch all content
+        val folderNames = listResult.prefixes.map { it.name } //fetch folders
+        val fileNames = listResult.items.map { it.name }    //fetch files
 
         FirebaseFetchResult(
             folderNames = folderNames,

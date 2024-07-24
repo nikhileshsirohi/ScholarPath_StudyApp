@@ -23,32 +23,32 @@ object CurrentUser {
     var user: UserData? = null
 }
 
-data class Subject(
-    val name: String,
-    val goalHour: Float,
-    val color: List<Color>,
-    val subjectId: Int
-) {
-    companion object {
-        val subjectCardColors = listOf(gradient1, gradient2, gradient3, gradient4, gradient5)
-    }
-}
+//data class Subject(
+//    val name: String,
+//    val goalHour: Float,
+//    val color: List<Color>,
+//    val subjectId: Int
+//) {
+//    companion object {
+//        val subjectCardColors = listOf(gradient1, gradient2, gradient3, gradient4, gradient5)
+//    }
+//}
 
-data class Task(
-    val title: String,
-    val description: String,
-    val dueDate: Long,
-    val priority: Int,
-    val relatedToSubject: String,
-    val isComplete: Boolean,
-    val taskSubjectId: Int,
-    val taskId: Int
-)
-
-data class Session(
-    val sessionSubjectId: Int,
-    val relatedToSubject: String,
-    val date: Long,
-    val duration: Long,
-    val sessionId: Int
-)
+//data class Task(
+//    val title: String,
+//    val description: String,
+//    val dueDate: Long,
+//    val priority: Int,
+//    val relatedToSubject: String,
+//    val isComplete: Boolean,
+//    val taskSubjectId: Int,
+//    val taskId: Int
+//)
+//
+//data class Session(
+//    val sessionSubjectId: Int,
+//    val relatedToSubject: String,
+//    val date: Long,
+//    val duration: Long,
+//    val sessionId: Int
+//)
